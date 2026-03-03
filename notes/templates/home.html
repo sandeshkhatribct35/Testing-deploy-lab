@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes App</title>
+</head>
+<body>
+
+<h2>Create Note</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<h2>All Notes</h2>
+
+{% for note in notes %}
+    <p>{{ note.title }} - {{ note.description }}</p>
+{% endfor %}
+
+</body>
+</html>
